@@ -33,11 +33,11 @@ function saveRecord(record) {
 }
 
 function checkDatabase() {
-  // open a transaction on your pending db
+  
   const transaction = db.transaction(["pending"], "readwrite");
-  // access your pending object store
+ 
   const store = transaction.objectStore("pending");
-  // get all records from store and set to a variable
+ 
   const getAll = store.getAll();
 
   getAll.onsuccess = function () {
@@ -52,11 +52,11 @@ function checkDatabase() {
       })
         .then((response) => response.json())
         .then(() => {
-          // if successful, open a transaction on your pending db
+         
           const transaction = db.transaction(["pending"], "readwrite");
-          // access your pending object store
+         
           const store = transaction.objectStore("pending");
-          // clear all items in your store
+          
           store.clear();
         });
     }
